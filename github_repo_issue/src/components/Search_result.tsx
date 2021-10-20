@@ -22,6 +22,7 @@ const Search_result = (Search_data: any) => {
         if (flag === true) {
           repos.push(data);
           localStorage.setItem("data", JSON.stringify(repos));
+          alert("등록되었습니다.");
         }
       }
     } else {
@@ -37,6 +38,9 @@ const Search_result = (Search_data: any) => {
   );
 };
 const Article = styled.div`
+  @media screen and (max-width: 700px) {
+    width: 100%;
+  }
   width: 70%;
   float: right;
   padding: 2rem;

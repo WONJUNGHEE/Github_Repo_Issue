@@ -11,11 +11,6 @@ const Search = () => {
   const handleInputSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
   };
-  const handleKeyPress = (e: any): void => {
-    if (e.key === "Enter") {
-      alert(searchInput);
-    }
-  };
 
   const Search_button = async () => {
     await axios
@@ -39,7 +34,11 @@ const Search = () => {
         }
       });
   };
-
+  const handleKeyPress = (e: any): void => {
+    if (e.key === "Enter") {
+      Search_button();
+    }
+  };
   return (
     <Wrapper>
       <InputWithLabel
@@ -55,9 +54,13 @@ const Search = () => {
 };
 
 const Wrapper = styled.div`
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 20px;
+  margin-top: 3rem;
 `;
 export default Search;

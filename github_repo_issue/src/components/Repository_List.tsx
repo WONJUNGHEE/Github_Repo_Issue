@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import Item from "./Form/Item";
 
@@ -10,14 +10,14 @@ const Repository_List = () => {
   );
 
   const RepoDelete = (e: any) => {
-    console.log(e.target);
     for (let el = 0; el < repos.length; el++) {
       if (repos[el].name === e.target.value) {
-        setRepos(repos.splice(el, 1));
+        repos.splice(el, 1);
+        setRepos([...repos]);
+        localStorage.setItem("data", JSON.stringify(repos));
         break;
       }
     }
-    localStorage.setItem("data", JSON.stringify(repos));
   };
 
   return (
@@ -37,6 +37,9 @@ const Repository_List = () => {
   );
 };
 const Article = styled.div`
+  @media screen and (max-width: 700px) {
+    width: 100%;
+  }
   width: 70%;
   float: right;
   padding: 2rem;

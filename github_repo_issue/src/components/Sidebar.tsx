@@ -8,16 +8,18 @@ const Sidebar = () => {
         <Link to={"/Repository_List"}>레포지토리 목록</Link>
       </div>
       <div>
-        <Link to={"/Issue"}>이슈 모음</Link>
+        <Link to={"/Issue_List"}>이슈 모음</Link>
       </div>
     </Aside>
   );
 };
 
 const Aside = styled.aside`
-  width: 15%;
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
   height: 100px;
-  padding-left: 1rem;
+  margin-left: 5%;
   float: left;
   box-shadow: inset 5px 0 5px -5px #29627e;
   font-style: italic;
